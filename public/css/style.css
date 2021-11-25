@@ -1,0 +1,203 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font: 400 1.2rem/1.5 'Futura', system-ui, sans-serif;
+  color: #000;
+}
+
+.center {
+  text-align: center;
+}
+
+.max {
+  max-width: 1200px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.grid img {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.button {
+  border: 0;
+  background-image: linear-gradient(
+    0deg,
+    rgba(128, 128, 128, 0.82),
+    rgba(128, 0, 128, 0.82)
+  );
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-size: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: 0.5rem auto #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  max-width: 70ch;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+}
+
+main > h1,
+h2 {
+  padding: 10px 0 5px 0;
+  margin: 20px auto;
+  background: linear-gradient(
+      to right,
+      rgba(128, 0, 128, 0.82) 50%,
+      rgba(128, 128, 128, 0.82) 50%
+    )
+    bottom left/ 20rem 4px;
+  background-repeat: no-repeat;
+}
+
+.ava {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.82);
+}
+
+/****** Header ******/
+
+.site-header {
+  background-image: linear-gradient(
+    0deg,
+    rgba(128, 128, 128, 0.82),
+    rgba(128, 0, 128, 0.82)
+  );
+  color: white;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.site-header > div {
+  padding: 2rem 2rem;
+}
+
+.site-header > div * {
+  margin: 0;
+}
+
+.site-header nav > div {
+  display: flex;
+  align-items: center;
+}
+
+.site-header nav a {
+  font-weight: 500;
+  color: white;
+  margin-inline-end: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header nav svg {
+  margin-inline-end: 0.5rem;
+}
+
+.site-header .logo {
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 140%;
+}
+
+.site-header .logo svg {
+  fill: white;
+  width: 40px;
+}
+
+/****** Footer ******/
+
+.site-footer {
+  background-image: linear-gradient(
+    0deg,
+    rgba(128, 0, 128, 0.82),
+    rgba(128, 128, 128, 0.82)
+  );
+  color: white;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.site-footer > div {
+  display: flex;
+}
+
+.site-footer .footer-right {
+  margin-left: auto;
+}
+
+.site-footer a {
+  font-weight: 500;
+  color: white;
+  margin-inline-end: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/****** Formular ******/
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form input[type='text'],
+form input[type='email'],
+form input[type='password'],
+form input[type='submit'],
+form label,
+form textarea {
+  display: block;
+  width: 100%;
+}
+
+form input[type='text'],
+form input[type='email'],
+form input[type='password'],
+form textarea {
+  padding: 0.4rem;
+  font: inherit;
+}
+
+form > div {
+  margin-block-end: 2rem;
+}
