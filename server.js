@@ -23,6 +23,10 @@ app.get('/gallery', (req, res) => {
   res.render('gallery');
 });
 
+app.get('/tutorials', (req, res) => {
+  res.render('tutorials');
+});
+
 app.get('/profile', (req, res) => {
   res.render('profile');
 });

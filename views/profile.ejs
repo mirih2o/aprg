@@ -1,15 +1,32 @@
 <%- include('partials/header'); %>
 
-    <main class="site-content max">
+    <main class="site-content">
         <h2>Profil</h2>
-
-        <!-- Platzhalter Avatar -->
-        <img src="https://images.unsplash.com/photo-1579109788443-68073c1fd623" alt="" class="ava">
-
-        <div>
-            <p>Name</p>
-            <p>Email</p>
-            <p>Bio</p>
+        <div class="grid">
+            <section>
+                <div class="profile profile-wide">
+                    <div class="profile__image"><img
+                            src="https://images.unsplash.com/photo-1579109788443-68073c1fd623?w=152&h=152&fit=crop&crop=faces"
+                            alt="Doggo" /></div>
+                    <div class="profile__info">
+                        <h3>Username</h3>
+                        <p class="profile__info__extra">Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
+                    </div>
+                    <div class="profile__stats">
+                        <p class="profile__stats__title">Posts</p>
+                        <h5 class="profile__stats__info">23</h5>
+                    </div>
+                    <div class="profile__stats">
+                        <p class="profile__stats__title">Followers</p>
+                        <h5 class="profile__stats__info">105</h5>
+                    </div>
+                    <div class="profile__stats">
+                        <p class="profile__stats__title">Following</p>
+                        <h5 class="profile__stats__info">81</h5>
+                    </div>
+                    <div class="profile__cta"><a class="button">Follow!</a></div>
+                </div>
+            </section>
         </div>
 
         <div>

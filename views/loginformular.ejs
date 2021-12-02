@@ -1,22 +1,63 @@
 <%- include('partials/header'); %>
-  <main class="site-content max">
-
+  <main class="site-content">
     <h2>Login</h2>
-    <form id="login" action="/login" method="POST">
-      <div>
-        <label for="name">Name:</label>
-        <input name="name" id="login-name" type="text" tabindex="1" required autofocus>
-      </div>
+    <!--
+    <div class="rainbow">
+      <div class="container">
+        <form id="login" action="/login" method="POST" class="rainbow">
+          <div>
+            <label for="name">Name:</label>
+            <input name="name" id="login-name" type="text" tabindex="1" required autofocus>
+          </div>
 
-      <div>
-        <label for="passwort">Passwort:</label>
-        <input placeholder="Passwort" name="login-passwort" id="passwort" type="password" tabindex="2" required></input>
-      </div>
+          <div>
+            <label for="passwort">Passwort:</label>
+            <input placeholder="Passwort" name="login-passwort" id="passwort" type="password" tabindex="2"
+              required></input>
+          </div>
 
-      <div>
-        <button name="submit" type="submit" id="login-submit" data-submit="... sendet" class="button">Absenden</button>
+          <div>
+            <button name="submit" type="submit" id="login-submit" data-submit="... sendet"
+              class="button">Absenden</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div> -->
+
+    <div class="box">
+      <div class="box-container">
+        <div class="form">
+          <h3>Citizen-Card<br><br> Checkbox</h3>
+          <form action="/auswert" method="POST">
+
+            <div class="inputBox">
+              <input type="text" name="Id" placeholder="Citizen-ID" required>
+            </div>
+
+            <div class="inputBox">
+              <input type="password" name="pass" placeholder="Passcode" required>
+            </div>
+
+            <br>
+
+            <div class="error">
+              <% if (typeof error !="undefined" ) { %>
+                <%= error %>
+                  <% } %>
+            </div>
+
+            <div class="inputBox">
+              <input type="submit" value="Login">
+            </div>
+
+            <p class="signup">Don't have a Citizen-Card?</p>
+            <a class="signup" href="/register">/Register/</a>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer>

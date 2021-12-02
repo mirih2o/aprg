@@ -1,3 +1,17 @@
+:root {
+  --black: black;
+  --darkgrey: rgb(35, 35, 43);
+  --lightgrey: rgb(150, 150, 150);
+  --white: white;
+  --pink: #e92166;
+  --cyan: #7abee3;
+  /*
+  --pink: rgb(239, 42, 78);
+  --cyan: rgb(131, 207, 199);
+  */
+  --borderRadius: 5px;
+}
+
 *,
 *::before,
 *::after {
@@ -6,10 +20,37 @@
   padding: 0;
 }
 
+html,
 body {
-  margin: 0;
-  font: 400 1.2rem/1.5 'Futura', system-ui, sans-serif;
-  color: #000;
+  height: 100%;
+}
+
+body {
+  /* font: 400 1.2rem/1.5 'Futura', system-ui, sans-serif; */
+  font-family: 'Press Start 2Px', system-ui, sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--white);
+  background-color: var(--darkgrey);
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  flex-shrink: 0;
+}
+
+.site-content {
+  flex: 1 0 auto;
+  min-width: 80%;
+  max-width: 93.5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.site-footer {
+  flex-shrink: 0;
 }
 
 .center {
@@ -17,32 +58,30 @@ body {
 }
 
 .max {
-  max-width: 1200px;
-  padding: 2rem;
+  max-width: 1440px;
+  padding: 0.5rem 0;
   margin: 0 auto;
+  width: 100%;
 }
 
 .grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  align-items: stretch;
 }
 
 .grid img {
-  aspect-ratio: 16/9;
-  width: 100%;
-  height: 400px;
+  max-width: 100%;
   object-fit: cover;
+  border: 1px solid var(--lightgrey);
+  box-shadow: 0 0 5px var(--lightgrey);
 }
 
 .button {
   border: 0;
-  background-image: linear-gradient(
-    0deg,
-    rgba(128, 128, 128, 0.82),
-    rgba(128, 0, 128, 0.82)
-  );
-  color: white;
+  background: var(--white);
+  color: var(--darkgrey);
   padding: 1rem 2.5rem;
   border-radius: 8px;
   font-size: inherit;
@@ -51,11 +90,25 @@ body {
 }
 
 .button:focus {
-  outline: 0.5rem auto #ffffff;
+  outline: 0.5rem auto var(--black);
 }
 
-a {
+main a,
+.nav-right a {
   text-decoration: none;
+  background: linear-gradient(to right, var(--cyan) 50%, var(--cyan) 50%) bottom
+    left/ 20rem 4px;
+  background-repeat: no-repeat;
+  color: inherit;
+}
+
+main a:hover,
+.nav-right a:hover {
+  text-decoration: none;
+  background: linear-gradient(to right, var(--pink) 50%, var(--pink) 50%) bottom
+    left/ 20rem 4px;
+  background-repeat: no-repeat;
+  color: inherit;
 }
 
 p {
@@ -79,41 +132,33 @@ main > h1,
 h2 {
   padding: 10px 0 5px 0;
   margin: 20px auto;
-  background: linear-gradient(
-      to right,
-      rgba(128, 0, 128, 0.82) 50%,
-      rgba(128, 128, 128, 0.82) 50%
-    )
-    bottom left/ 20rem 4px;
+  background: linear-gradient(to right, var(--cyan) 50%, var(--pink) 50%) bottom
+    left/ 20rem 4px;
   background-repeat: no-repeat;
 }
 
 .ava {
-  height: 100px;
-  width: 100px;
+  width: calc(33.333% - 1rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
   object-fit: cover;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(128, 128, 128, 0.82);
+  box-shadow: 0 0 5px var(--lightgrey);
 }
 
 /****** Header ******/
 
 .site-header {
-  background-image: linear-gradient(
-    0deg,
-    rgba(128, 128, 128, 0.82),
-    rgba(128, 0, 128, 0.82)
-  );
-  color: white;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+  background: white;
+  color: black;
+  width: 100%;
 }
 
-.site-header > div {
-  padding: 2rem 2rem;
-}
-
-.site-header > div * {
-  margin: 0;
+.site-header nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 .site-header nav > div {
@@ -123,8 +168,8 @@ h2 {
 
 .site-header nav a {
   font-weight: 500;
-  color: white;
-  margin-inline-end: 1rem;
+  color: black;
+  margin-inline-start: 1rem;
   display: inline-flex;
   align-items: center;
 }
@@ -134,27 +179,19 @@ h2 {
 }
 
 .site-header .logo {
-  margin-right: auto;
+  margin: 0 auto 0 0;
   font-weight: 700;
-  font-size: 140%;
-}
-
-.site-header .logo svg {
-  fill: white;
-  width: 40px;
+  font-size: 120%;
 }
 
 /****** Footer ******/
 
 .site-footer {
-  background-image: linear-gradient(
-    0deg,
-    rgba(128, 0, 128, 0.82),
-    rgba(128, 128, 128, 0.82)
-  );
+  background: black;
   color: white;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(128, 128, 128, 0.25);
+  position: sticky;
+  top: 100vh;
+  width: 100%;
 }
 
 .site-footer > div {
@@ -167,17 +204,132 @@ h2 {
 
 .site-footer a {
   font-weight: 500;
-  color: white;
-  margin-inline-end: 1rem;
+  color: var(--white);
+  margin-inline-start: 1rem;
   display: inline-flex;
   align-items: center;
 }
 
-/****** Formular ******/
+/****** Profile ******/
+
+/* Profile Section */
+
+section:nth-child(1) {
+  grid-column: 1/7;
+  justify-self: center;
+  align-self: center;
+}
+
+.profile-wide h3 {
+  font: 700 1.5rem/1.2;
+  margin-bottom: 0.625rem;
+}
+
+.profile-wide h5 {
+  font: 500 1.125rem/1.2;
+  margin-bottom: 0.625rem;
+}
+
+a.button {
+  outline: none;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  font: 500 1rem/1 'Poppins', sans-serif;
+  padding: 1.25rem;
+  cursor: pointer;
+  border-radius: var(--borderRadius);
+  background: var(--pink);
+  color: var(--white);
+  position: relative;
+  top: 0;
+  transition: 0.2s ease;
+}
+a.button:hover,
+a.button.hover {
+  top: -3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  background-color: var(--pink);
+}
+a.button:active,
+a.button.active {
+  background: var(--primaryShade4);
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  top: 0;
+}
+
+.profile {
+  position: relative;
+  background: var(--darkgrey);
+  color: var(--white);
+  box-shadow: 0 3px 15px var(--lightgrey);
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+.profile__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile__stats__title {
+  color: var(--lightgrey);
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+.profile a:hover {
+  top: 0;
+  box-shadow: none;
+  background: var(--pink);
+}
+.profile a:active,
+.profile a:focus {
+  top: 0;
+  box-shadow: none;
+  background: var(--pink);
+}
+
+.profile-wide {
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+  grid-auto-flow: dense;
+  min-width: 380px;
+  max-width: 800px;
+}
+.profile-wide .profile__image {
+  padding: 1.875rem 1.25rem 1.25rem;
+  grid-row: 1/3;
+}
+.profile-wide .profile__image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
+  border: 1px solid var(--lightgrey);
+  box-shadow: 0 0 5px var(--lightgrey);
+}
+.profile-wide .profile__stats {
+  margin-bottom: 0.75rem;
+}
+.profile-wide .profile__info {
+  grid-column: span 3;
+  padding: 1.563rem 1.563rem 0.938rem 0;
+}
+.profile-wide .profile__cta {
+  grid-column: span 4;
+}
+.profile-wide .profile__cta a {
+  border-radius: 0 0 5px 5px;
+}
+
+/****** Forms ******
 
 form {
   max-width: 600px;
   margin: 0 auto;
+  padding: 1rem;
+  background: var(--white);
+  color: var(--black);
 }
 
 form input[type='text'],
@@ -194,10 +346,196 @@ form input[type='text'],
 form input[type='email'],
 form input[type='password'],
 form textarea {
+  background: var(--darkgrey);
+  color: var(--white);
   padding: 0.4rem;
   font: inherit;
+}
+
+form input[type='submit'] {
+  background: var(--white);
+  color: var(--black);
 }
 
 form > div {
   margin-block-end: 2rem;
 }
+*****/
+
+/***** BOX ANIMATION *****
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  z-index: 10;
+  font-size: 9.5px;
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rainbow {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0px;
+  padding: 2rem;
+  background: white;
+}
+.rainbow ::before {
+  content: '';
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #399953;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 100% 0, 0% 0, 0% 100%, 100% 100%;
+  background-image: linear-gradient(rgb(239, 42, 78), rgb(239, 42, 78)),
+    linear-gradient(#000000, #000000),
+    linear-gradient(rgb(131, 207, 199), rgb(131, 207, 199)),
+    linear-gradient(#000000, #000000);
+  animation: rotate 6s linear infinite;
+}
+
+rainbow ::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  background: var(--black);
+  border-radius: 0px;
+}
+***/
+
+.error {
+  color: yellow;
+}
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(25, 25, 36);
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.box::before {
+  content: ' ';
+  position: absolute;
+  width: 200px;
+  height: 140%;
+  background: linear-gradient(#63defd, #ff004c);
+  animation: animate 4s linear infinite;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  background: rgb(35, 35, 43);
+  inset: 4px;
+  border-radius: 2px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.box-container {
+  z-index: 10;
+  font-size: 9.5px;
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+.form h3 {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.form h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 80px;
+  height: 4px;
+  background: white;
+}
+
+.form .inputBox {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.form .inputBox input {
+  width: 90%;
+  background: black;
+  border: none;
+  outline: none;
+  padding: 10px 9px;
+  font-size: 9.9px;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.form .inputBox input[type='submit'] {
+  background: black;
+  color: white;
+  max-width: 80px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: 595;
+}
+
+.signup {
+  margin-top: 5px;
+  color: white;
+}
+
+.signup a {
+  color: rgb(255, 255, 255);
+  font-weight: 595;
+}
+
+/***** GALLERY *****/
